@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBindingAndUpdateSourceTrigger", "DataBindingAndUpdateSourceTrigger.csproj", "{315493C2-2115-46CB-99BF-623C2B9A76FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{315493C2-2115-46CB-99BF-623C2B9A76FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{315493C2-2115-46CB-99BF-623C2B9A76FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{315493C2-2115-46CB-99BF-623C2B9A76FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{315493C2-2115-46CB-99BF-623C2B9A76FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8DF5895-B148-4DFB-9814-9A18995A73D3}
+	EndGlobalSection
+EndGlobal
