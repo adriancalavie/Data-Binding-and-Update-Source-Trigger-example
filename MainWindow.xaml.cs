@@ -20,7 +20,7 @@ namespace DataBindingAndUpdateSourceTrigger
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<Product> products;
+        private  List<Product> products = new List<Product>();
 
         public MainWindow()
         {
@@ -46,6 +46,22 @@ namespace DataBindingAndUpdateSourceTrigger
             products.Add(new Product("Älvstarr", 34.99, Category.HOME));
             products.Add(new Product("Glenn", 79.99, Category.HOME));
             products.Add(new Product("Sagstua", 169.0, Category.HOME));
+        }
+
+        private void Button_Click_Show_Items(object sender, RoutedEventArgs e)
+        {
+            ShowItems show = new ShowItems();
+            show.Show();
+        }
+
+        private void Button_Click_Close(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Button_Click_Add_Item(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
