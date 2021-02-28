@@ -14,6 +14,7 @@
         <Button x:Name="ButtonShowItems" Content="Show items" Margin="124,205,0,0" Click="Button_Click_Show_Items" FontSize="14" Height="38" VerticalAlignment="Top" HorizontalAlignment="Left" Width="102"/>
         <Button x:Name="ButtonAddItem" Content="Add item" Margin="0,205,101,0" Click="Button_Click_Add_Item" FontSize="14" Height="38" VerticalAlignment="Top" HorizontalAlignment="Right" Width="102"/>
         <Button x:Name="ButtonClose" Content="Close" Margin="32,0,0,28" Click="Button_Click_Close" FontSize="14" HorizontalAlignment="Left" Width="102" Height="38" VerticalAlignment="Bottom"/>
+        <Label Content="{Binding Path=Test, Mode=TwoWay}" HorizontalAlignment="Left" Margin="274,402,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
 

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DataBindingAndUpdateSourceTrigger"
+        xmlns:local="clr-namespace:DataBindingAndUpdateSourceTrigger" d:DataContext="{d:DesignInstance Type=local:MainWindow}"
         mc:Ignorable="d"
         Title="Add Item" 
         Height="300" Width="600"
@@ -16,7 +16,15 @@
         <Label Content="Add item:" HorizontalAlignment="Left" Margin="35,26,0,0" VerticalAlignment="Top" Height="40" Width="124" FontSize="24" FontWeight="Bold" Foreground="#FF2587D8"/>
         <Label Content="Category:" HorizontalAlignment="Left" Margin="72,160,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="107"/>
         <Button x:Name="SubmitNewItemButton" Content="Submit" Margin="451,220,25,0" VerticalAlignment="Top" Click="SubmitNewItem" Height="32"/>
-        <ComboBox x:Name="NewItemCategory" HorizontalAlignment="Left" Margin="184,164,0,0" VerticalAlignment="Top" Width="387" SelectionChanged="CategoryChanged" Height="22"/>
-
+        <ComboBox 
+            x:Name="CategoryComboBox"
+            HorizontalAlignment="Left" 
+            Margin="184,164,0,0" 
+            VerticalAlignment="Top" 
+            Width="387" 
+            Height="22"
+            ItemsSource="{Binding ListOfCategories}" SelectionChanged="CategoryComboBox_SelectionChanged" 
+            
+            />
     </Grid>
 </Window>

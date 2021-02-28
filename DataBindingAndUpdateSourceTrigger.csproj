@@ -70,6 +70,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CategoryList.cs" />
+    <Compile Include="ProductList.cs" />
     <Compile Include="ShowItems.xaml.cs">
       <DependentUpon>ShowItems.xaml</DependentUpon>
     </Compile>
@@ -138,4 +140,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if exist "$(TargetPath)" if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked"
+</PreBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -13,27 +13,57 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 namespace DataBindingAndUpdateSourceTrigger
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : INotifyPropertyChanged
     {
 
         internal List<Product> Products { get => products; set => products = value; }
+
+        private string _test;
+        public string Test
+        {
+            get => _test;
+            set
+            { 
+                if(value != _test)
+                {
+                    _test = value;
+                    OnPropertyChanged();
+                }
+            } 
+        }
+
+
 
         private List<Product> products;
         private ShowItems show;
         private AddItem addItem;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
+
+            Category category = Category.ELECTRONICS;
+
+            Test = category.ToString();
 
             products = new List<Product>();
-            show = new ShowItems();
-            addItem = new AddItem(products);
+            //show = new ShowItems(products);
+            //addItem = new AddItem(products);
 
             Products.Add(new Product("Gaming computer", 3599.99, Category.ELECTRONICS));
             Products.Add(new Product("Office computer", 1999.99, Category.ELECTRONICS));
@@ -59,7 +89,8 @@ namespace DataBindingAndUpdateSourceTrigger
 
         private void Button_Click_Show_Items(object sender, RoutedEventArgs e)
         {
-            show = new ShowItems();
+            show = new ShowItems(products);
+            //Test = "2";
             show.Show();
         }
 
@@ -76,4 +107,6 @@ namespace DataBindingAndUpdateSourceTrigger
             addItem.Show();
         }
     }
+
+   
 }

@@ -19,9 +19,10 @@ namespace DataBindingAndUpdateSourceTrigger
     /// </summary>
     public partial class ShowItems : Window
     {
-        public ShowItems()
+        public ShowItems(List<Product> products)
         {
             InitializeComponent();
+            DataContext = new ProductList(products);
         }
     }
 }

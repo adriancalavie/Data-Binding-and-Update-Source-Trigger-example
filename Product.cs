@@ -25,5 +25,19 @@ namespace DataBindingAndUpdateSourceTrigger
             Price = 0.0;
             Category = Category.UNKNOWN;
         }
+
+        public override string ToString()
+        {
+            return Description + "(" + Category.ToString() + ")" + " price: " + Price;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Category == ((Product)obj).Category &&
+                Description == ((Product)obj).Description &&
+                Price == ((Product)obj).Price;
+        }
+
+        public override int GetHashCode() => base.GetHashCode();
     }
 }

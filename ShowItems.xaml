@@ -16,7 +16,8 @@
         <CheckBox Content="Group by category" HorizontalAlignment="Left" Margin="34,144,0,0" VerticalAlignment="Top" FontSize="14" Width="144" RenderTransformOrigin="0.16,0.444"/>
         <CheckBox Content="Sort by high price" HorizontalAlignment="Left" Margin="230,144,0,0" VerticalAlignment="Top" FontSize="14" Width="144" RenderTransformOrigin="0.16,0.444"/>
         <CheckBox Content="Sort by low price" HorizontalAlignment="Left" Margin="411,144,0,0" VerticalAlignment="Top" FontSize="14" Width="144" RenderTransformOrigin="0.16,0.444"/>
-        <ListBox x:Name="ListBoxItems" AutomationProperties.Name="List of Items For Sale" Margin="0,185,0,190"/>
+        <ListBox x:Name="ListBoxItems" AutomationProperties.Name="List of Items For Sale" Margin="0,185,0,190"
+                 ItemsSource="{Binding ListOfProducts}"/>
 
 
     </Grid>

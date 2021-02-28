@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 namespace DataBindingAndUpdateSourceTrigger
 {
     /// <summary>
@@ -28,8 +32,10 @@ namespace DataBindingAndUpdateSourceTrigger
             product = new Product();
             this.productList = products;
             hasChanged = false;
+
             InitializeComponent();
 
+            DataContext = new CategoryList();
         }
 
         private void DescirptionChanged(object sender, TextChangedEventArgs e)
@@ -39,6 +45,7 @@ namespace DataBindingAndUpdateSourceTrigger
         }
         private void PriceChanged(object sender, TextChangedEventArgs e)
         {
+
             if (double.TryParse(NewItemPrice.Text, out double result))
             {
                 product.Price = result;
@@ -50,13 +57,6 @@ namespace DataBindingAndUpdateSourceTrigger
 
             hasChanged = true;
         }
-
-        private void CategoryChanged(object sender, SelectionChangedEventArgs e)
-        {
-            product.Category = (Category)NewItemCategory.SelectedItem;
-            hasChanged = true;
-        }
-
         private void SubmitNewItem(object sender, RoutedEventArgs e)
         {
             //TODO 
@@ -65,6 +65,12 @@ namespace DataBindingAndUpdateSourceTrigger
                 productList.Add(product);
             }
             Hide();
+        }
+
+        private void CategoryComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            product.Category = ((string)CategoryComboBox.SelectedItem).ToCategoryValue();
+            hasChanged = true;
         }
     }
 }
