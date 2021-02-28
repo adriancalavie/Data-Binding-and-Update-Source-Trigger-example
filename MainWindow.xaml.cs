@@ -20,48 +20,60 @@ namespace DataBindingAndUpdateSourceTrigger
     /// </summary>
     public partial class MainWindow : Window
     {
-        private  List<Product> products = new List<Product>();
+
+        internal List<Product> Products { get => products; set => products = value; }
+
+        private List<Product> products;
+        private ShowItems show;
+        private AddItem addItem;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            products.Add(new Product("Gaming computer", 3599.99, Category.ELECTRONICS));
-            products.Add(new Product("Office computer", 1999.99, Category.ELECTRONICS));
-            products.Add(new Product("Microwave oven", 400.0, Category.ELECTRONICS));
-            products.Add(new Product("Monitor", 350.0, Category.ELECTRONICS));
-            
-            products.Add(new Product("Running shoes", 250.0, Category.SPORTS));
-            products.Add(new Product("Gym bag", 100.0, Category.SPORTS));
-            products.Add(new Product("Dumbbell set", 85.0, Category.SPORTS));
-            products.Add(new Product("Gym trousers", 89.99, Category.SPORTS));
-            products.Add(new Product("Basketball jersey", 30.0, Category.SPORTS));
-            products.Add(new Product("Tennis ball", 5.99, Category.SPORTS));
-            products.Add(new Product("Football gloves", 17.99, Category.SPORTS));
+            products = new List<Product>();
+            show = new ShowItems();
+            addItem = new AddItem(products);
 
-            products.Add(new Product("Björkåsen", 24.99, Category.HOME));
-            products.Add(new Product("Lenast", 12.99, Category.HOME));
-            products.Add(new Product("Undvika", 29.99, Category.HOME));
-            products.Add(new Product("Rådfråga", 9.99, Category.HOME));
-            products.Add(new Product("Älvstarr", 34.99, Category.HOME));
-            products.Add(new Product("Glenn", 79.99, Category.HOME));
-            products.Add(new Product("Sagstua", 169.0, Category.HOME));
+            Products.Add(new Product("Gaming computer", 3599.99, Category.ELECTRONICS));
+            Products.Add(new Product("Office computer", 1999.99, Category.ELECTRONICS));
+            Products.Add(new Product("Microwave oven", 400.0, Category.ELECTRONICS));
+            Products.Add(new Product("Monitor", 350.0, Category.ELECTRONICS));
+
+            Products.Add(new Product("Running shoes", 250.0, Category.SPORTS));
+            Products.Add(new Product("Gym bag", 100.0, Category.SPORTS));
+            Products.Add(new Product("Dumbbell set", 85.0, Category.SPORTS));
+            Products.Add(new Product("Gym trousers", 89.99, Category.SPORTS));
+            Products.Add(new Product("Basketball jersey", 30.0, Category.SPORTS));
+            Products.Add(new Product("Tennis ball", 5.99, Category.SPORTS));
+            Products.Add(new Product("Football gloves", 17.99, Category.SPORTS));
+
+            Products.Add(new Product("Björkåsen", 24.99, Category.HOME));
+            Products.Add(new Product("Lenast", 12.99, Category.HOME));
+            Products.Add(new Product("Undvika", 29.99, Category.HOME));
+            Products.Add(new Product("Rådfråga", 9.99, Category.HOME));
+            Products.Add(new Product("Älvstarr", 34.99, Category.HOME));
+            Products.Add(new Product("Glenn", 79.99, Category.HOME));
+            Products.Add(new Product("Sagstua", 169.0, Category.HOME));
         }
 
         private void Button_Click_Show_Items(object sender, RoutedEventArgs e)
         {
-            ShowItems show = new ShowItems();
+            show = new ShowItems();
             show.Show();
         }
 
         private void Button_Click_Close(object sender, RoutedEventArgs e)
         {
+            show.Close();
+            addItem.Close();
             Close();
         }
 
         private void Button_Click_Add_Item(object sender, RoutedEventArgs e)
         {
-
+            addItem = new AddItem(products);
+            addItem.Show();
         }
     }
 }

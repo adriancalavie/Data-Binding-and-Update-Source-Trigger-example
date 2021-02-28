@@ -1,6 +1,6 @@
 ﻿namespace DataBindingAndUpdateSourceTrigger
 {
-    enum Category
+    public enum Category
     {
         SPORTS,
         HOME,

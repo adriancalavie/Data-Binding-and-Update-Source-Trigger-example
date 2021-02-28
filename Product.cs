@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DataBindingAndUpdateSourceTrigger
 {
-    class Product
+    public class Product
     {
-        string Description { get; set; }
-        double Price { get; set; }
+        internal string Description { get; set; }
+        internal double Price { get; set; }
         internal Category Category { get; set; }
 
         public Product(string description, double price, Category category)
