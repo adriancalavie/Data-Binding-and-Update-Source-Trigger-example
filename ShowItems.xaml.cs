@@ -19,10 +19,41 @@ namespace DataBindingAndUpdateSourceTrigger
     /// </summary>
     public partial class ShowItems : Window
     {
+        List<Product> products;
         public ShowItems(List<Product> products)
         {
             InitializeComponent();
+            this.products = products;
             DataContext = new ProductList(products);
+        }
+
+        private void SortAscendingCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            SortDescendingCheckBox.IsChecked = false;
+            products.Sort(delegate (Product x, Product y)
+            {
+                return x.Price.CompareTo(y.Price);
+            });
+
+            DataContext = new ProductList(products);
+        }
+
+        private void SortDescendingCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            SortAscendingCheckBox.IsChecked = false;
+            products.Sort(delegate (Product x, Product y)
+            {
+                return x.Price.CompareTo(y.Price);
+            });
+
+            products.Reverse();
+
+            DataContext = new ProductList(products);
+        }
+
+        private void GroupByCategory_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

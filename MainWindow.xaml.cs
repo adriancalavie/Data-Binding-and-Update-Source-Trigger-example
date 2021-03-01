@@ -96,8 +96,10 @@ namespace DataBindingAndUpdateSourceTrigger
 
         private void Button_Click_Close(object sender, RoutedEventArgs e)
         {
-            show.Close();
-            addItem.Close();
+            if(show!=null)
+                show.Close();
+            if(addItem!=null)
+                addItem.Close();
             Close();
         }
 

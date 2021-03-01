@@ -12,10 +12,10 @@
 
 
     <Grid>
-        <Label Content="List of items for sale:" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top" Width="192" Height="39" FontSize="20"/>
-        <CheckBox Content="Group by category" HorizontalAlignment="Left" Margin="34,144,0,0" VerticalAlignment="Top" FontSize="14" Width="144" RenderTransformOrigin="0.16,0.444"/>
-        <CheckBox Content="Sort by high price" HorizontalAlignment="Left" Margin="230,144,0,0" VerticalAlignment="Top" FontSize="14" Width="144" RenderTransformOrigin="0.16,0.444"/>
-        <CheckBox Content="Sort by low price" HorizontalAlignment="Left" Margin="411,144,0,0" VerticalAlignment="Top" FontSize="14" Width="144" RenderTransformOrigin="0.16,0.444"/>
+        <Label Content="List of items for sale:" HorizontalAlignment="Center" Margin="33,63,313,0" VerticalAlignment="Top" Width="248" Height="45" FontSize="24" FontWeight="Bold" Foreground="#FF2587D8"/>
+        <CheckBox x:Name="GroupByCategory" Content="Group by category" HorizontalAlignment="Left" Margin="33,150,0,0" VerticalAlignment="Top" FontSize="14" Width="144" RenderTransformOrigin="0.16,0.444" Checked="GroupByCategory_Checked"/>
+        <CheckBox x:Name="SortAscendingCheckBox" Content="Sort by price(ascending)" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" FontSize="14" Width="171" RenderTransformOrigin="0.16,0.444" Checked="SortAscendingCheckBox_Checked"/>
+        <CheckBox x:Name="SortDescendingCheckBox" Content="Sort by price(descending)" HorizontalAlignment="Left" Margin="386,150,0,0" VerticalAlignment="Top" FontSize="14" Width="182" RenderTransformOrigin="0.16,0.444" Checked="SortDescendingCheckBox_Checked"/>
         <ListBox x:Name="ListBoxItems" AutomationProperties.Name="List of Items For Sale" Margin="0,185,0,190"
                  ItemsSource="{Binding ListOfProducts}"/>
 
