@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataBindingAndUpdateSourceTrigger
 {
-    public class Product
+    public class Product: IEquatable<Product> , IComparable<Product>
+
     {
         internal string Description { get; set; }
         internal double Price { get; set; }
@@ -38,6 +39,22 @@ namespace DataBindingAndUpdateSourceTrigger
                 Price == ((Product)obj).Price;
         }
 
+        public int CompareTo(Product compareProduct)
+        {
+            // A null value means that this object is greater.
+            if (compareProduct == null)
+                return 1;
+
+            else
+                return this.Price.CompareTo(compareProduct.Price);
+        }
+
         public override int GetHashCode() => base.GetHashCode();
+
+        public bool Equals(Product other)
+        {
+            if (other == null) return false;
+            return (this.Price.Equals(other.Price));
+        }
     }
 }

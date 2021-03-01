@@ -19,5 +19,6 @@ namespace DataBindingAndUpdateSourceTrigger
         }
 
         public List<string> ListOfCategories { get; set; }
+
     }
 }

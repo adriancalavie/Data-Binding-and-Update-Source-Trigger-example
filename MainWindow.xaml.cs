@@ -42,7 +42,7 @@ namespace DataBindingAndUpdateSourceTrigger
 
 
 
-        private List<Product> products;
+        public static List<Product> products;
         private ShowItems show;
         private AddItem addItem;
 
@@ -108,6 +108,7 @@ namespace DataBindingAndUpdateSourceTrigger
             addItem = new AddItem(products);
             addItem.Show();
         }
+
     }
 
    
