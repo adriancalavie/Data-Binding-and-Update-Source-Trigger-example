@@ -24,5 +24,20 @@ namespace DataBindingAndUpdateSourceTrigger
             InitializeComponent();
             DataContext = new ProductList(products);
         }
+
+        private void CheckBox_Checked_Group(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CheckBox_Checked_Sort_High(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CheckBox_Checked_Sort_Low(object sender, RoutedEventArgs e)
+        {
+            MainWindow.products.Sort();
+        }
     }
 }

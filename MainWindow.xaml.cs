@@ -42,7 +42,7 @@ namespace DataBindingAndUpdateSourceTrigger
 
 
 
-        private List<Product> products;
+        public static List<Product> products;
         private ShowItems show;
         private AddItem addItem;
 
@@ -96,8 +96,10 @@ namespace DataBindingAndUpdateSourceTrigger
 
         private void Button_Click_Close(object sender, RoutedEventArgs e)
         {
-            show.Close();
-            addItem.Close();
+            if(show!=null)
+                show.Close();
+            if(addItem!=null)
+                addItem.Close();
             Close();
         }
 
@@ -106,6 +108,7 @@ namespace DataBindingAndUpdateSourceTrigger
             addItem = new AddItem(products);
             addItem.Show();
         }
+
     }
 
    
